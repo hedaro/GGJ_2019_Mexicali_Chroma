@@ -6,7 +6,8 @@ public enum Room
 {
     Center,
     Left,
-    Right
+    Right,
+    UpperLeft
 }
 
 public class GameState : MonoBehaviour

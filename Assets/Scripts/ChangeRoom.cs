@@ -6,9 +6,11 @@ public class ChangeRoom : MonoBehaviour
 {
     public Vector2 cameraMovement;
     public Vector2 cameraDirection;
+    public Vector2 playerDirection;
     public Room belongsToRoom;
     public Room leadsToRoom;
     private Vector3 cameraPosition;
+    private Vector3 playerPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,6 @@ public class ChangeRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("Collided");
         if (other.CompareTag("Player") && belongsToRoom == GameState.currentRoom)
         {
             GameState.currentRoom = leadsToRoom;
@@ -32,6 +33,11 @@ public class ChangeRoom : MonoBehaviour
             cameraPosition.x += cameraDirection.x * cameraMovement.x;
             cameraPosition.y += cameraDirection.y * cameraMovement.y;
             Camera.main.transform.position = cameraPosition;
+
+            playerPosition = other.transform.position;
+            playerPosition.x += playerDirection.x * cameraMovement.x;
+            playerPosition.y += playerDirection.y * cameraMovement.y;
+            other.transform.position = playerPosition;
         }
     }
 }
