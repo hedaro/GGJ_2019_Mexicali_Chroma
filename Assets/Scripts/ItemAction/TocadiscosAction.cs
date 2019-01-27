@@ -23,7 +23,7 @@ public class TocadiscosAction : MonoBehaviour
 
     public void playVinyl()
     {
-        GetComponent<Animator>().SetBool("play", true);
+        //GetComponent<Animator>().SetBool("play", true);
         GetComponent<BoxCollider2D>().enabled = false;
         print("playVinyl Function");
     }

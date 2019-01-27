@@ -27,8 +27,12 @@ public class PlayerMovement : MonoBehaviour
     
     public bool enter;
     public GameObject otherObject;
-
     public bool [] ItemObjects;
+
+    public bool greenUnlock;
+    public bool yellowUnlock;
+    public bool redUnlock;
+    public bool blueUnlock;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         SetPlayerState(PlayerState.Idle);
 
         ItemObjects = new bool[(int)Items.total];
-
     }
 
     // Update is called once per frame
@@ -88,11 +91,6 @@ public class PlayerMovement : MonoBehaviour
                         print("entro a : "+otherObject.name);
                         Destroy(otherObject);
                         break;
-
-                    case "Hexagon":
-                        print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
-                        break;
                     */
 
                     case "Vinyl":
@@ -108,8 +106,9 @@ public class PlayerMovement : MonoBehaviour
 
                         if (ItemObjects[(int)Items.Vinyl]) 
                         {
-                            print ("Deberia de poner el disco, empezar la animacion y desabilitar box collider de tocadisco, para no volver a interactuar ");
+                            print ("empezar la animacion y desabilitar box collider de tocadisco, para no volver a interactuar ");
                             otherObject.GetComponent<TocadiscosAction>().playVinyl();
+                            greenColorUnlock();
                         }
                         else
                         {
@@ -119,36 +118,94 @@ public class PlayerMovement : MonoBehaviour
                         break;
 
                     case "Vendas":
+                        
                         print("entro a : "+otherObject.name);
                         otherObject.GetComponent<VendasAction>().activeAction();
                         break;
 
                     case "Tijeras":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<TijerasAction>().activeAction();
+                        if (redUnlock)
+                        {
+                            ItemObjects[(int)Items.Tijeras] = true;
+                            Destroy(otherObject);
+                        }
+                        else
+                        {
+                            otherObject.GetComponent<TijerasAction>().activeAction();
+                        }
                         break;
 
                     case "Alcohol":
+
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<AlcoholAction>().activeAction();
+                        if (redUnlock)
+                        {
+                            ItemObjects[(int)Items.Alcohol] = true;
+                            Destroy(otherObject);
+                        }
+                        else
+                        {
+                            otherObject.GetComponent<AlcoholAction>().activeAction();
+                        }
+                        
                         break;
 
                     case "Buro":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<BuroAction>().activeAction();
+                        if (ItemObjects[(int)Items.Pulcera])
+                        {
+                            redColorUnlock();
+                        }
+                        else
+                        {
+                            otherObject.GetComponent<BuroAction>().activeAction();
+                        }
+                        
                         break;
 
                     case "Pulcera":
+                        
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<PulceraAction>().activeAction();
+                        if (greenUnlock)
+                        {
+                            ItemObjects[(int)Items.Pulcera] = true;
+                            Destroy(otherObject);
+                        }
+                        else
+                        {
+                            otherObject.GetComponent<PulceraAction>().activeAction();
+                        }
+                        
                         break;
 
                     case "Bateria":
+
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<BateriaAction>().activeAction();
+                        if (blueUnlock)
+                        {
+                            otherObject.GetComponent<BateriaAction>().playBateria();
+                        }
+                        else
+                        {
+                            otherObject.GetComponent<BateriaAction>().activeAction();
+                        }
+                        
                         break;
 
                     case "Baquetas":
+                        
+                        print("entro a : "+otherObject.name);
+                        if (blueUnlock)
+                        {
+                            ItemObjects[(int)Items.Baquetas] = true;
+                            Destroy(otherObject);
+                        }
+                        else
+                        {
+                            otherObject.GetComponent<BaquetasAction>().activeAction();
+                        }
+
                         print("entro a : "+otherObject.name);
                         otherObject.GetComponent<BaquetasAction>().activeAction();
                         break;
@@ -189,5 +246,37 @@ public class PlayerMovement : MonoBehaviour
         enter = false;
         otherObject.GetComponent<SpriteOutline>().enabled = false;        
         otherObject = null;
+    }
+
+    private void greenColorUnlock()
+    {
+       greenUnlock = true;
+
+       GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
+       GameObject.Find("Pulcera").GetComponent<Animator>().SetBool("unlock", true);
+
+       //gameObject.Find("SalaBackground").GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    private void yellowColorUnlock()
+    {
+        yellowUnlock = true;
+    }
+
+    private void redColorUnlock()
+    {
+        redUnlock = true;
+
+        GameObject.Find("Alcohol").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Vendas").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Tijeras").GetComponent<Animator>().SetBool("unlock", true);
+
+    }
+
+    private void blueColorUnlock()
+    {
+        blueUnlock = true;
+
+        GameObject.Find("Bateria").GetComponent<Animator>().SetBool("unlock", true);
     }
 }

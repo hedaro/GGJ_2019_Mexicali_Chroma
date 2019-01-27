@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaquetasAction : MonoBehaviour
+public class BateriaAction : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,5 +19,10 @@ public class BaquetasAction : MonoBehaviour
     public void activeAction()
     {
     	print("activeAction BaquetasAction");
+    }
+
+    public void playBateria()
+    {
+        print("activeAction playBateria");
     }
 }
