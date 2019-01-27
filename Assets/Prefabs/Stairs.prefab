@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2784c10dd63355949ab50d2a5c35ed8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,3 +123,4 @@ MonoBehaviour:
   playerDisplacement: {x: 0, y: 0}
   belongsToRoom: {fileID: 0}
   leadsToRoom: {fileID: 0}
+  type: 0
