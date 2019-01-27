@@ -84,6 +84,56 @@ public class PlayerMovement : MonoBehaviour
                         otherObject.GetComponent<ItemAction>().activeAction();
                         break;
 
+                    case "Tocadiscos":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "Vendas":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "Tijeras":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "Alcohol":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "Buro":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "Pulcera":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "Bateria":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "Baquetas":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "CuadroRevolucion":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                    case "CuadroJazz":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+                    
                 }
 
             }

@@ -89,13 +89,15 @@ Shader "Sprites/Outline"
             {
                 fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color;
 
+                float ratio = 20.f; 
+
                 // If outline is enabled and there is a pixel, try to draw an outline.
                 if (_Outline > 0 && c.a != 0) {
                     // Get the neighbouring four pixels.
-                    fixed4 pixelUp = tex2D(_MainTex, IN.texcoord + fixed2(0, _MainTex_TexelSize.y));
-                    fixed4 pixelDown = tex2D(_MainTex, IN.texcoord - fixed2(0, _MainTex_TexelSize.y));
-                    fixed4 pixelRight = tex2D(_MainTex, IN.texcoord + fixed2(_MainTex_TexelSize.x, 0));
-                    fixed4 pixelLeft = tex2D(_MainTex, IN.texcoord - fixed2(_MainTex_TexelSize.x, 0));
+                    fixed4 pixelUp = tex2D(_MainTex, IN.texcoord + fixed2(0, _MainTex_TexelSize.y * ratio));
+                    fixed4 pixelDown = tex2D(_MainTex, IN.texcoord - fixed2(0, _MainTex_TexelSize.y * ratio));
+                    fixed4 pixelRight = tex2D(_MainTex, IN.texcoord + fixed2(_MainTex_TexelSize.x * ratio, 0));
+                    fixed4 pixelLeft = tex2D(_MainTex, IN.texcoord - fixed2(_MainTex_TexelSize.x * ratio , 0));
 
                     // If one of the neighbouring pixels is invisible, we render an outline.
                     if (pixelUp.a * pixelDown.a * pixelRight.a * pixelLeft.a == 0) {

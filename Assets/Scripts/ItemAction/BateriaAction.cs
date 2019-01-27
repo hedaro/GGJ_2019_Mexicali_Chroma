@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexagonAction : ItemAction
+public class BaquetasAction : ItemAction
 {
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class HexagonAction : ItemAction
 
     public override void activeAction()
     {
-    	print("activeAction HexagonAction");
+    	print("activeAction BaquetasAction");
     }
 }
