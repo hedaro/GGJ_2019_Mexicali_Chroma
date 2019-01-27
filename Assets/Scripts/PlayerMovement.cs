@@ -130,32 +130,69 @@ public class PlayerMovement : MonoBehaviour
     {
         greenUnlock = true;
 
-        GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
-        GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
+        //GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
+        //GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
 
-        //gameObject.Find("SalaBackground").GetComponent<SpriteRenderer>().enabled = true;
+        GameObject.Find("SalaBackground").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("LavadoBackground").GetComponent<Animator>().SetBool("unlock", true);
+
+        if (yellowUnlock && redUnlock && blueUnlock)
+        {
+            GameObject.Find("WCBackground").GetComponent<Animator>().SetBool("unlock", true);
+        }
     }
 
     private void yellowColorUnlock()
     {
         yellowUnlock = true;
+        GameObject.Find("AlcobaBackground").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("BibliotecaBackground").GetComponent<Animator>().SetBool("unlock", true);
+
+        if (redUnlock)
+        {
+            GameObject.Find("MusicalBackground").GetComponent<Animator>().SetBool("unlock", true);
+            GameObject.Find("Pasilo1Background").GetComponent<Animator>().SetBool("unlock", true);
+        }
+
+        if (greenUnlock && redUnlock && blueUnlock)
+        {
+            GameObject.Find("WCBackground").GetComponent<Animator>().SetBool("unlock", true);
+        }
     }
 
     private void redColorUnlock()
     {
         redUnlock = true;
 
-        GameObject.Find("Alcohol").GetComponent<Animator>().SetBool("unlock", true);
-        GameObject.Find("Vendas").GetComponent<Animator>().SetBool("unlock", true);
-        GameObject.Find("Tijeras").GetComponent<Animator>().SetBool("unlock", true);
+        //GameObject.Find("Alcohol").GetComponent<Animator>().SetBool("unlock", true);
+        //GameObject.Find("Vendas").GetComponent<Animator>().SetBool("unlock", true);
+        //GameObject.Find("Tijeras").GetComponent<Animator>().SetBool("unlock", true);
 
+        GameObject.Find("Pasilo2Background").GetComponent<Animator>().SetBool("unlock", true);
+
+        if (yellowUnlock)
+        {
+            GameObject.Find("MusicalBackground").GetComponent<Animator>().SetBool("unlock", true);
+            GameObject.Find("Pasilo1Background").GetComponent<Animator>().SetBool("unlock", true);
+        }
+
+        if (greenUnlock && yellowUnlock && blueUnlock)
+        {
+            GameObject.Find("WCBackground").GetComponent<Animator>().SetBool("unlock", true);
+        }
     }
 
     private void blueColorUnlock()
     {
         blueUnlock = true;
 
-        GameObject.Find("Bateria").GetComponent<Animator>().SetBool("unlock", true);
+        //GameObject.Find("Bateria").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("ComedorBackground").GetComponent<Animator>().SetBool("unlock", true);
+
+        if (greenUnlock && yellowUnlock && redUnlock)
+        {
+            GameObject.Find("WCBackground").GetComponent<Animator>().SetBool("unlock", true);
+        }
     }
 
     private void ItemBehaviours(GameObject otherObject)
