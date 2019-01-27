@@ -136,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
     {
         greenUnlock = true;
 
+        SoundManager.PlayMusic(TrackList.DULCE_HABANA);
         //GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
         //GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
 
