@@ -13,10 +13,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 position;
     private Vector3 scale;
     private PlayerState playerState;
+    
+    public bool enter;
+    public string otherName;
+    public GameObject otherObject;
+    public bool isDestroyed;
 
     // Start is called before the first frame update
     void Start()
     {
+        enter = false;
         SetPlayerState(PlayerState.Idle);
     }
 
@@ -57,9 +63,26 @@ public class PlayerMovement : MonoBehaviour
             SetPlayerState(PlayerState.Idle);
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (enter)
+            {
+                switch (otherObject.name) 
+                {
+                    case "Triangle":
+                        print("entro a : "+otherObject.name);
+                        Destroy(otherObject);
+                        isDestroyed = true;
+                        break;
 
+                    case "Hexagon":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+
+                }
+
+            }
         }
     }
 
@@ -67,5 +90,30 @@ public class PlayerMovement : MonoBehaviour
     {
         playerState = state;
         GetComponent<Animator>().SetInteger("state", (int)state);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+       print("OnTriggerEnter2D");
+       enter = true;
+       otherObject = other.gameObject;
+       otherObject.GetComponent<Animator>().SetBool("overlap",true);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        print("OnTriggerExit2D");
+        enter = false;
+
+        if (!isDestroyed)
+        {
+            otherObject.GetComponent<Animator>().SetBool("overlap",false);
+        }
+        else 
+        {
+            isDestroyed = false;
+        }
+        
+        otherObject = null;
     }
 }
