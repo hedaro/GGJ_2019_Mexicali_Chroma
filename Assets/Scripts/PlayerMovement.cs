@@ -14,7 +14,7 @@ public enum Items
     Vendas,
     Tijeras,
     Alcohol,
-    Pulcera,
+    Pulsera,
     Baquetas,
     total
 }
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         greenUnlock = true;
 
         GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
-        GameObject.Find("Pulcera").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
 
         //gameObject.Find("SalaBackground").GetComponent<SpriteRenderer>().enabled = true;
     }
@@ -225,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
 
             case "Buro":
                 print("entro a : " + otherObject.name);
-                if (ItemObjects[(int)Items.Pulcera])
+                if (ItemObjects[(int)Items.Pulsera])
                 {
                     redColorUnlock();
                 }
@@ -236,17 +236,17 @@ public class PlayerMovement : MonoBehaviour
 
                 break;
 
-            case "Pulcera":
+            case "Pulsera":
 
                 print("entro a : " + otherObject.name);
                 if (greenUnlock)
                 {
-                    ItemObjects[(int)Items.Pulcera] = true;
+                    ItemObjects[(int)Items.Pulsera] = true;
                     Destroy(otherObject);
                 }
                 else
                 {
-                    otherObject.GetComponent<PulceraAction>().activeAction();
+                    otherObject.GetComponent<PulseraAction>().activeAction();
                 }
 
                 break;

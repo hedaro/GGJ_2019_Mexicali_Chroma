@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 3094844784984121479}
   - component: {fileID: 3094844784984121481}
   - component: {fileID: 3094844784984121478}
-  - component: {fileID: 2727750062438930756}
-  - component: {fileID: 8676079825817251853}
+  - component: {fileID: 738985457313666390}
+  - component: {fileID: 2132716618769147804}
+  - component: {fileID: 8446693921135507039}
+  - component: {fileID: 937176334315122480}
   m_Layer: 0
-  m_Name: Bateria
+  m_Name: Alcohol 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,8 +66,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 18, y: 13.5}
-    newSize: {x: 18, y: 13.5}
+    oldSize: {x: 4.61, y: 2.29}
+    newSize: {x: 4.5, y: 9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -73,7 +75,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.88, y: 8.88}
   m_EdgeRadius: 0
---- !u!114 &2727750062438930756
+--- !u!114 &738985457313666390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,10 +84,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 3094844784984121482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31ba31a4acf2b7944b82fd8edfa2dfdf, type: 3}
+  m_Script: {fileID: 11500000, guid: c9d571c0fd5a657438dc79ff0211c428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &8676079825817251853
+--- !u!111 &2132716618769147804
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094844784984121482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &8446693921135507039
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094844784984121482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &937176334315122480
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,12 +158,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 119898183c1b49040a65108c44fa5d41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d46ffebf59ecbc34a96c6c1b2408b15c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 18, y: 13.5}
+  m_Size: {x: 4.5, y: 9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
