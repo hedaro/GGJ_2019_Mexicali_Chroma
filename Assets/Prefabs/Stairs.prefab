@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8439710542585787766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.55, y: -2.95, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc06a4eda9073c44fb4c918b69a8ad2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMovement: {x: 12.4, y: 7.2}
-  cameraDirection: {x: 0, y: 0}
-  playerDirection: {x: 0, y: 0}
-  belongsToRoom: 0
-  leadsToRoom: 0
+  cameraMovement: {x: 0, y: 67.2}
+  playerDisplacement: {x: 0, y: 0}
+  belongsToRoom: {fileID: 0}
+  leadsToRoom: {fileID: 0}
+  gameState: {fileID: 0}

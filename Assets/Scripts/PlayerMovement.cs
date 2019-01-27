@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public string otherName;
     public GameObject otherObject;
     public bool isDestroyed;
+    public float playerSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey("left"))
             {
-                position.x -= 0.1f;
+                position.x -= playerSpeed;
                 transform.position = position;
 
                 if (scale.x < 0)
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKey("right"))
             {
-                position.x += 0.1f;
+                position.x += playerSpeed;
                 transform.position = position;
 
                 if (scale.x > 0)
@@ -92,28 +93,28 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Animator>().SetInteger("state", (int)state);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-       print("OnTriggerEnter2D");
-       enter = true;
-       otherObject = other.gameObject;
-       otherObject.GetComponent<Animator>().SetBool("overlap",true);
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //   print("OnTriggerEnter2D");
+    //   enter = true;
+    //   otherObject = other.gameObject;
+    //   otherObject.GetComponent<Animator>().SetBool("overlap",true);
+    //}
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        print("OnTriggerExit2D");
-        enter = false;
+    //private void OnTriggerExit2D(Collider2D other)
+    //{
+    //    print("OnTriggerExit2D");
+    //    enter = false;
 
-        if (!isDestroyed)
-        {
-            otherObject.GetComponent<Animator>().SetBool("overlap",false);
-        }
-        else 
-        {
-            isDestroyed = false;
-        }
+    //    if (!isDestroyed)
+    //    {
+    //        otherObject.GetComponent<Animator>().SetBool("overlap",false);
+    //    }
+    //    else 
+    //    {
+    //        isDestroyed = false;
+    //    }
         
-        otherObject = null;
-    }
+    //    otherObject = null;
+    //}
 }
