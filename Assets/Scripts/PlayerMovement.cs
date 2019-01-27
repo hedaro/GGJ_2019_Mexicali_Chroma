@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState playerState;
     private AudioManager SoundManager;
 
+
+    public GameState gameState;
     public bool enter;
     public string otherName;
     public GameObject otherObject;
@@ -99,10 +101,13 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
         {
             if (enter)
-            {
+            { 
                 ItemBehaviours(otherObject);
-
             }
+
+
+            //gameState.itemsDescriptor.gameObject.SetActive(true);
+            //gameState.itemsCollectedController.gameObject.SetActive(true);
         }
     }
 
