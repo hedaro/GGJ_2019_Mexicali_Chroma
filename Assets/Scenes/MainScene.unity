@@ -2903,7 +2903,7 @@ PrefabInstance:
     - target: {fileID: 1949253161020157259, guid: dd74b9dcea7762044a45c6073a1916a9,
         type: 3}
       propertyPath: playerDisplacement.y
-      value: 44.8
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 1949253161020157259, guid: dd74b9dcea7762044a45c6073a1916a9,
         type: 3}
@@ -5154,7 +5154,7 @@ PrefabInstance:
     - target: {fileID: 1949253161020157259, guid: dd74b9dcea7762044a45c6073a1916a9,
         type: 3}
       propertyPath: playerDisplacement.y
-      value: -44.8
+      value: -44
       objectReference: {fileID: 0}
     - target: {fileID: 8439710542585787767, guid: dd74b9dcea7762044a45c6073a1916a9,
         type: 3}
