@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2784c10dd63355949ab50d2a5c35ed8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,8 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc06a4eda9073c44fb4c918b69a8ad2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMovement: {x: 0, y: 67.2}
+  cameraDirection: {x: 0, y: 0}
   playerDisplacement: {x: 0, y: 0}
   belongsToRoom: {fileID: 0}
   leadsToRoom: {fileID: 0}
-  gameState: {fileID: 0}

@@ -613,6 +613,11 @@ PrefabInstance:
       propertyPath: cameraDirection.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2900423964328443984, guid: 20726459e0aa68d4e97871d75bcd0dae,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20726459e0aa68d4e97871d75bcd0dae, type: 3}
 --- !u!1 &480057578 stripped
@@ -853,6 +858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraDirection.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900423964328443984, guid: 20726459e0aa68d4e97871d75bcd0dae,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20726459e0aa68d4e97871d75bcd0dae, type: 3}
@@ -1144,7 +1154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: db95448a1a833f5498e8a62d855de80f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1638,6 +1648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraDirection.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900423964328443984, guid: 20726459e0aa68d4e97871d75bcd0dae,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20726459e0aa68d4e97871d75bcd0dae, type: 3}
@@ -2193,7 +2208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 514520969ba265345a57377a1e0b41b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2401,6 +2416,11 @@ PrefabInstance:
       propertyPath: cameraDirection.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 2900423964328443984, guid: 20726459e0aa68d4e97871d75bcd0dae,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20726459e0aa68d4e97871d75bcd0dae, type: 3}
 --- !u!1 &1251092526
@@ -2456,7 +2476,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7005ad389e7b4114f8e4aadb553f5e11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2909,7 +2929,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 708b54adb3c62d2479532ea420cca945, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3773,6 +3793,11 @@ PrefabInstance:
       propertyPath: cameraDirection.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2900423964328443984, guid: 20726459e0aa68d4e97871d75bcd0dae,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20726459e0aa68d4e97871d75bcd0dae, type: 3}
 --- !u!1 &1652447666
@@ -3842,7 +3867,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 934e22f7b81137f4183ae92af00ae3ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
