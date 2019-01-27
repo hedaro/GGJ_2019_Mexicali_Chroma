@@ -15,9 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState playerState;
     
     public bool enter;
-    public string otherName;
     public GameObject otherObject;
-    public bool isDestroyed;
 
     // Start is called before the first frame update
     void Start()
@@ -69,13 +67,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 switch (otherObject.name) 
                 {
+                    /*
                     case "Triangle":
                         print("entro a : "+otherObject.name);
                         Destroy(otherObject);
-                        isDestroyed = true;
                         break;
 
                     case "Hexagon":
+                        print("entro a : "+otherObject.name);
+                        otherObject.GetComponent<ItemAction>().activeAction();
+                        break;
+                    */
+
+                    case "Vinyl":
                         print("entro a : "+otherObject.name);
                         otherObject.GetComponent<ItemAction>().activeAction();
                         break;
@@ -97,23 +101,14 @@ public class PlayerMovement : MonoBehaviour
        print("OnTriggerEnter2D");
        enter = true;
        otherObject = other.gameObject;
-       otherObject.GetComponent<Animator>().SetBool("overlap",true);
+       otherObject.GetComponent<SpriteOutline>().enabled = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         print("OnTriggerExit2D");
         enter = false;
-
-        if (!isDestroyed)
-        {
-            otherObject.GetComponent<Animator>().SetBool("overlap",false);
-        }
-        else 
-        {
-            isDestroyed = false;
-        }
-        
+        otherObject.GetComponent<SpriteOutline>().enabled = false;        
         otherObject = null;
     }
 }
