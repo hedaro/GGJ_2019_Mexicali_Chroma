@@ -136,8 +136,8 @@ public class PlayerMovement : MonoBehaviour
     {
         greenUnlock = true;
 
-        //GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
-        //GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
+        GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
 
         GameObject.Find("SalaBackground").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("LavadoBackground").GetComponent<Animator>().SetBool("unlock", true);
