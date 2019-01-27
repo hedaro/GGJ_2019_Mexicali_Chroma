@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class CollectedItemImageController : MonoBehaviour
 {
 
-    internal string[] itemsPath = new string[]{ "demo1", "demo2", "demo3", "demo4", "demo5"} ;
+    internal string[] itemsPath = new string[]{ "vinyl", "demo2", "demo3", "demo4", "demo5"} ;
 
     public void UpdateImageForItem(int index)
     {
         if (index < itemsPath.Length)
         {
-            gameObject.GetComponent<Image>().sprite = Resources.Load(itemsPath[index]) as Sprite;
+            Debug.Log(itemsPath[index]);
+            gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>(itemsPath[index]);
             gameObject.SetActive(true);
 
         }

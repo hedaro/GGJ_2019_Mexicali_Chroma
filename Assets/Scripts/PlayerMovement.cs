@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 position;
     private Vector3 scale;
     private PlayerState playerState;
-    
+
+    public GameState gameState;
     public bool enter;
     public string otherName;
     public GameObject otherObject;
@@ -94,10 +95,13 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
         {
             if (enter)
-            {
+            { 
                 ItemBehaviours(otherObject);
-
             }
+
+
+            //gameState.itemsDescriptor.gameObject.SetActive(true);
+            //gameState.itemsCollectedController.gameObject.SetActive(true);
         }
     }
 
