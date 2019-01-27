@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 position;
     private Vector3 scale;
     private PlayerState playerState;
-    
+    private AudioManager SoundManager;
+
     public bool enter;
     public string otherName;
     public GameObject otherObject;
@@ -40,10 +41,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager = GameObject.Find("SoundManager").GetComponent<AudioManager>();
+
         enter = false;
         SetPlayerState(PlayerState.Idle);
 
         ItemObjects = new bool[(int)Items.total];
+
+        SoundManager.PlayMusic(TrackList.SON);
     }
 
     // Update is called once per frame

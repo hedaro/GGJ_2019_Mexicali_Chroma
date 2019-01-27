@@ -11,7 +11,19 @@ public enum SfxChannels
 public enum SoundList
 {
     DOG,
-    DOOR
+    DOOR,
+    DOOR2,
+    RADIO
+}
+
+public enum TrackList
+{
+    SON,
+    MYSTERIOS,
+    JAZZ,
+    HOPELESS,
+    HOPE,
+    DULCE_HABANA
 }
 
 public class AudioManager : MonoBehaviour
@@ -122,11 +134,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(int track)
+    public void PlayMusic(TrackList track)
     {
-        if (AudioChannels[0].clip != Sfx[track])
+        if (AudioChannels[0].clip != Music[(int)track])
         {
-            AudioChannels[0].clip = Sfx[track];
+            AudioChannels[0].clip = Music[(int)track];
             AudioChannels[0].loop = true;
             AudioChannels[0].Play();
         }
