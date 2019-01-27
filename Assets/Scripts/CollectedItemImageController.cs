@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CollectedItemImageController : MonoBehaviour
 {
 
-    internal string[] itemsPath = ["demo1", "demo2","demo3", "demo4", "demo5"];
+    internal string[] itemsPath = new string[]{ "demo1", "demo2", "demo3", "demo4", "demo5"} ;
 
     public void UpdateImageForItem(int index)
     {
@@ -21,6 +21,12 @@ public class CollectedItemImageController : MonoBehaviour
     public  void HideItemView()
     {
         gameObject.SetActive(false);
+    }
+
+
+    private void Awake()
+    {
+
     }
 
 
