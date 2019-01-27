@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexagonAction : ItemAction
+public class VendasAction : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,8 @@ public class HexagonAction : ItemAction
         
     }
 
-    public override void activeAction()
+    public void activeAction()
     {
-    	print("activeAction HexagonAction");
+    	print("activeAction VendasAction");
     }
 }

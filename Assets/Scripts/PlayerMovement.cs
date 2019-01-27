@@ -8,6 +8,17 @@ public enum PlayerState
     Walking = 1
 }
 
+public enum Items
+{
+    Vinyl,
+    Vendas,
+    Tijeras,
+    Alcohol,
+    Pulcera,
+    Baquetas,
+    total
+}
+
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 position;
@@ -17,15 +28,22 @@ public class PlayerMovement : MonoBehaviour
     public bool enter;
     public string otherName;
     public GameObject otherObject;
-    public bool isDestroyed;
+    public bool[] ItemObjects;
     public float playerSpeed;
     public ChangeRoom changeRoom;
+
+    public bool greenUnlock;
+    public bool yellowUnlock;
+    public bool redUnlock;
+    public bool blueUnlock;
 
     // Start is called before the first frame update
     void Start()
     {
         enter = false;
         SetPlayerState(PlayerState.Idle);
+
+        ItemObjects = new bool[(int)Items.total];
     }
 
     // Update is called once per frame
@@ -77,20 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (enter)
             {
-                switch (otherObject.name) 
-                {
-                    case "Triangle":
-                        print("entro a : "+otherObject.name);
-                        Destroy(otherObject);
-                        isDestroyed = true;
-                        break;
-
-                    case "Hexagon":
-                        print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
-                        break;
-
-                }
+                ItemBehaviours(otherObject);
 
             }
         }
@@ -107,23 +112,186 @@ public class PlayerMovement : MonoBehaviour
         print("OnTriggerEnter2D");
         enter = true;
         otherObject = other.gameObject;
-        otherObject.GetComponent<Animator>().SetBool("overlap", true);
+        //otherObject.GetComponent<SpriteOutline>().enabled = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         print("OnTriggerExit2D");
         enter = false;
-
-        if (!isDestroyed)
-        {
-            otherObject.GetComponent<Animator>().SetBool("overlap", false);
-        }
-        else
-        {
-            isDestroyed = false;
-        }
-
         otherObject = null;
+    }
+
+    private void greenColorUnlock()
+    {
+        greenUnlock = true;
+
+        GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
+        GameObject.Find("Pulcera").GetComponent<Animator>().SetBool("unlock", true);
+
+        //gameObject.Find("SalaBackground").GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    private void yellowColorUnlock()
+    {
+        yellowUnlock = true;
+    }
+
+    private void redColorUnlock()
+    {
+        redUnlock = true;
+
+        GameObject.Find("Alcohol").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Vendas").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Tijeras").GetComponent<Animator>().SetBool("unlock", true);
+
+    }
+
+    private void blueColorUnlock()
+    {
+        blueUnlock = true;
+
+        GameObject.Find("Bateria").GetComponent<Animator>().SetBool("unlock", true);
+    }
+
+    private void ItemBehaviours(GameObject otherObject)
+    {
+        switch (otherObject.name)
+        {
+            /*
+            case "Triangle":
+                print("entro a : "+otherObject.name);
+                Destroy(otherObject);
+                break;
+            */
+
+            case "Vinyl":
+                print("entro a : " + otherObject.name);
+                otherObject.GetComponent<VinylAction>().activeAction();
+                ItemObjects[(int)Items.Vinyl] = true;
+                Destroy(otherObject);
+                break;
+
+            case "Tocadiscos":
+
+                print("entro a : " + otherObject.name);
+
+                if (ItemObjects[(int)Items.Vinyl])
+                {
+                    print("empezar la animacion y desabilitar box collider de tocadisco, para no volver a interactuar ");
+                    otherObject.GetComponent<TocadiscosAction>().playVinyl();
+                    greenColorUnlock();
+                }
+                else
+                {
+                    print("Mostrar mensaje de que falta el vinyl en el UI");
+                    otherObject.GetComponent<TocadiscosAction>().activeAction();
+                }
+                break;
+
+            case "Vendas":
+
+                print("entro a : " + otherObject.name);
+                otherObject.GetComponent<VendasAction>().activeAction();
+                break;
+
+            case "Tijeras":
+                print("entro a : " + otherObject.name);
+                if (redUnlock)
+                {
+                    ItemObjects[(int)Items.Tijeras] = true;
+                    Destroy(otherObject);
+                }
+                else
+                {
+                    otherObject.GetComponent<TijerasAction>().activeAction();
+                }
+                break;
+
+            case "Alcohol":
+
+                print("entro a : " + otherObject.name);
+                if (redUnlock)
+                {
+                    ItemObjects[(int)Items.Alcohol] = true;
+                    Destroy(otherObject);
+                }
+                else
+                {
+                    otherObject.GetComponent<AlcoholAction>().activeAction();
+                }
+
+                break;
+
+            case "Buro":
+                print("entro a : " + otherObject.name);
+                if (ItemObjects[(int)Items.Pulcera])
+                {
+                    redColorUnlock();
+                }
+                else
+                {
+                    otherObject.GetComponent<BuroAction>().activeAction();
+                }
+
+                break;
+
+            case "Pulcera":
+
+                print("entro a : " + otherObject.name);
+                if (greenUnlock)
+                {
+                    ItemObjects[(int)Items.Pulcera] = true;
+                    Destroy(otherObject);
+                }
+                else
+                {
+                    otherObject.GetComponent<PulceraAction>().activeAction();
+                }
+
+                break;
+
+            case "Bateria":
+
+                print("entro a : " + otherObject.name);
+                if (blueUnlock)
+                {
+                    otherObject.GetComponent<BateriaAction>().playBateria();
+                }
+                else
+                {
+                    otherObject.GetComponent<BateriaAction>().activeAction();
+                }
+
+                break;
+
+            case "Baquetas":
+
+                print("entro a : " + otherObject.name);
+                if (blueUnlock)
+                {
+                    ItemObjects[(int)Items.Baquetas] = true;
+                    Destroy(otherObject);
+                }
+                else
+                {
+                    otherObject.GetComponent<BaquetasAction>().activeAction();
+                }
+
+                print("entro a : " + otherObject.name);
+                otherObject.GetComponent<BaquetasAction>().activeAction();
+                break;
+
+            case "CuadroRevolucion":
+                print("entro a : " + otherObject.name);
+                otherObject.GetComponent<CuadroRevolucionAction>().activeAction();
+                break;
+
+            case "CuadroJazz":
+                print("entro a : " + otherObject.name);
+                otherObject.GetComponent<CuadroJazzAction>().activeAction();
+                break;
+
+        }
     }
 }
