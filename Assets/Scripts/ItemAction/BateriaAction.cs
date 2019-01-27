@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaquetasAction : ItemAction
+public class BaquetasAction : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class BaquetasAction : ItemAction
         
     }
 
-    public override void activeAction()
+    public void activeAction()
     {
     	print("activeAction BaquetasAction");
     }

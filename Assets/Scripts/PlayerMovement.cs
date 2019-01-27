@@ -8,6 +8,17 @@ public enum PlayerState
     Walking = 1
 }
 
+public enum Items
+{
+    Vinyl,
+    Vendas,
+    Tijeras,
+    Alcohol,
+    Pulcera,
+    Baquetas,
+    total
+}
+
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 position;
@@ -17,11 +28,16 @@ public class PlayerMovement : MonoBehaviour
     public bool enter;
     public GameObject otherObject;
 
+    public bool [] ItemObjects;
+
     // Start is called before the first frame update
     void Start()
     {
         enter = false;
         SetPlayerState(PlayerState.Idle);
+
+        ItemObjects = new bool[(int)Items.total];
+
     }
 
     // Update is called once per frame
@@ -81,57 +97,70 @@ public class PlayerMovement : MonoBehaviour
 
                     case "Vinyl":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<VinylAction>().activeAction();
+                        ItemObjects[(int)Items.Vinyl] = true;
+                        Destroy(otherObject);
                         break;
 
                     case "Tocadiscos":
+                        
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+
+                        if (ItemObjects[(int)Items.Vinyl]) 
+                        {
+                            print ("Deberia de poner el disco, empezar la animacion y desabilitar box collider de tocadisco, para no volver a interactuar ");
+                            otherObject.GetComponent<TocadiscosAction>().playVinyl();
+                        }
+                        else
+                        {
+                            print ("Mostrar mensaje de que falta el vinyl en el UI");
+                            otherObject.GetComponent<TocadiscosAction>().activeAction();
+                        }
                         break;
 
                     case "Vendas":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<VendasAction>().activeAction();
                         break;
 
                     case "Tijeras":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<TijerasAction>().activeAction();
                         break;
 
                     case "Alcohol":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<AlcoholAction>().activeAction();
                         break;
 
                     case "Buro":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<BuroAction>().activeAction();
                         break;
 
                     case "Pulcera":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<PulceraAction>().activeAction();
                         break;
 
                     case "Bateria":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<BateriaAction>().activeAction();
                         break;
 
                     case "Baquetas":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<BaquetasAction>().activeAction();
                         break;
 
                     case "CuadroRevolucion":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<CuadroRevolucionAction>().activeAction();
                         break;
 
                     case "CuadroJazz":
                         print("entro a : "+otherObject.name);
-                        otherObject.GetComponent<ItemAction>().activeAction();
+                        otherObject.GetComponent<CuadroJazzAction>().activeAction();
                         break;
                     
                 }

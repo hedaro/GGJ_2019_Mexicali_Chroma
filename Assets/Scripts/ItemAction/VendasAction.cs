@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VendasAction : ItemAction
+public class VendasAction : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class VendasAction : ItemAction
         
     }
 
-    public override void activeAction()
+    public void activeAction()
     {
     	print("activeAction VendasAction");
     }
