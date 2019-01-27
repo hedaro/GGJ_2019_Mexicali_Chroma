@@ -20,7 +20,10 @@ public class ProximitySound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Math.Abs(Player.transform.position.x - transform.position.x) < Room.Size.x)
+        BoxCollider2D playerBox = Player.GetComponent<BoxCollider2D>();
+        if (Math.Abs(Player.transform.position.x - transform.position.x) < Room.Size.x
+            && transform.position.y >= playerBox.bounds.min.y
+            && transform.position.y <= playerBox.bounds.max.y)
         {
             SoundManager.PlaySound((int)SoundIndex, SfxChannels.CH_SFX, true);
             SoundManager.SetSoundVolume((int)SoundIndex, 1.0f-Math.Abs(Player.transform.position.x - transform.position.x) / Room.Size.x);
