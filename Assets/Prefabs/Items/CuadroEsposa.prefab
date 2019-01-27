@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8446693921135507039}
   - component: {fileID: 937176334315122480}
   m_Layer: 0
-  m_Name: Alcohol 3
+  m_Name: CuadroEsposa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Animator:
   m_GameObject: {fileID: 3094844784984121482}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c03a3efec280d84c957db248963f419, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
