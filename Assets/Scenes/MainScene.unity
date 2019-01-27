@@ -4056,10 +4056,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7791b6413cbdd994caa186cca6c3569d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Music: []
+  Music:
+  - {fileID: 8300000, guid: de3553dfb21679f4f81e82f8f1359729, type: 3}
+  - {fileID: 8300000, guid: bff184cf6c6bc7b40816cd99e018ab76, type: 3}
+  - {fileID: 8300000, guid: 71654a3771336464a95e81945fa3102d, type: 3}
+  - {fileID: 8300000, guid: d9d279e46ca2e5e479a26fb93914a896, type: 3}
+  - {fileID: 8300000, guid: c18ff652282382240bd2f53fb042a561, type: 3}
+  - {fileID: 8300000, guid: 9343eafd7da36924baa970dc04af8351, type: 3}
   Sfx:
   - {fileID: 8300000, guid: 437eab88fa888b343b426cab36f851a2, type: 3}
   - {fileID: 8300000, guid: 65a6bae865d58b34da9cee305e55d19f, type: 3}
+  - {fileID: 8300000, guid: 400223f26a54a0147a387b4e1577e293, type: 3}
+  - {fileID: 8300000, guid: acaf50c3679178043bf7cc10d3703177, type: 3}
   AudioChannels:
   - {fileID: 1007198347}
   - {fileID: 1007198347}
