@@ -644,6 +644,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: a675eb41a4899a243b435e36bb92a53b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a675eb41a4899a243b435e36bb92a53b, type: 3}
 --- !u!1001 &388459788
@@ -1592,6 +1597,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: 85fa9160ca25a0549bdba91aff0ad479,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85fa9160ca25a0549bdba91aff0ad479, type: 3}
 --- !u!1001 &693706507
@@ -2369,6 +2379,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: ccfc598127f603f43bff32bfcda42c01,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4715957287622832557, guid: ccfc598127f603f43bff32bfcda42c01,
         type: 3}
       propertyPath: m_SortingOrder
@@ -3013,6 +3028,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: 2feba355e72014b40bd5d0a7f4e19de7,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2feba355e72014b40bd5d0a7f4e19de7, type: 3}
 --- !u!1001 &1189012791
@@ -3627,6 +3647,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: df338b2a3227a134f9d8464d92289d5b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df338b2a3227a134f9d8464d92289d5b, type: 3}
 --- !u!1001 &1301286103
@@ -3800,14 +3825,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5733322225599217715, guid: b4dff16609bfb4d4d92d4476279417ad,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 21
-      objectReference: {fileID: 0}
     - target: {fileID: 3094844784984121478, guid: b4dff16609bfb4d4d92d4476279417ad,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: b4dff16609bfb4d4d92d4476279417ad,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1779174828236822900, guid: b4dff16609bfb4d4d92d4476279417ad,
@@ -3815,6 +3840,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1b1850ba948645642b86992264e311f9, type: 2}
+    - target: {fileID: 5733322225599217715, guid: b4dff16609bfb4d4d92d4476279417ad,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4dff16609bfb4d4d92d4476279417ad, type: 3}
 --- !u!1 &1402149952
@@ -4244,6 +4274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: 5bf19909cdc0bb74abc52f1ed545d336,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 738985457313666390, guid: 5bf19909cdc0bb74abc52f1ed545d336, type: 3}
@@ -5230,6 +5265,7 @@ GameObject:
   - component: {fileID: 1682389383}
   - component: {fileID: 1682389385}
   - component: {fileID: 1682389384}
+  - component: {fileID: 1682389386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5335,7 +5371,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.32011783, y: -0.22868633}
+  m_Offset: {x: -0.077697754, y: 0.66638184}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5346,7 +5382,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.865694, y: 19.66442}
+  m_Size: {x: 10.849304, y: 21.454556}
   m_EdgeRadius: 0
 --- !u!50 &1682389383
 Rigidbody2D:
@@ -5403,6 +5439,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1682389386
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682389378}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.29837036, y: -0.20258331}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 25.499998, y: 33}
+    newSize: {x: 0.64, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.996155, y: 19.666016}
+  m_EdgeRadius: 0
 --- !u!1 &1684822022
 GameObject:
   m_ObjectHideFlags: 0
@@ -5894,6 +5956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: 5bf19909cdc0bb74abc52f1ed545d336,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 738985457313666390, guid: 5bf19909cdc0bb74abc52f1ed545d336, type: 3}
