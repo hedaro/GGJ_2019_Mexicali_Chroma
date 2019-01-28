@@ -138,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
         GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
         GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("CuadroEsposa").GetComponent<Animator>().SetBool("unlock", true);
         SoundManager.PlayMusic(TrackList.DULCE_HABANA);
 
         GameObject.Find("SalaBackground").GetComponent<Animator>().SetBool("unlock", true);
@@ -275,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
                 print("entro a : " + otherObject.name);
                 if (ItemObjects[(int)Items.Pulsera])
                 {
-                    redColorUnlock();
+                    yellowColorUnlock();
                 }
                 else
                 {
