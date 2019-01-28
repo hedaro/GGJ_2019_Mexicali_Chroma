@@ -122,13 +122,14 @@ public class PlayerMovement : MonoBehaviour
         print("OnTriggerEnter2D");
         enter = true;
         otherObject = other.gameObject;
-        //otherObject.GetComponent<SpriteOutline>().enabled = true;
+        otherObject.GetComponent<SpriteOutline>().enabled = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         print("OnTriggerExit2D");
         enter = false;
+        otherObject.GetComponent<SpriteOutline>().enabled = false;
         otherObject = null;
     }
 
