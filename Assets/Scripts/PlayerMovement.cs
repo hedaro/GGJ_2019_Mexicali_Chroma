@@ -277,7 +277,9 @@ public class PlayerMovement : MonoBehaviour
                 print("entro a : " + otherObject.name);
                 if (ItemObjects[(int)Items.Pulsera])
                 {
+                    GameObject.Find("PulseraBuro").GetComponent<SpriteRenderer>().enabled = true;
                     yellowColorUnlock();
+
                 }
                 else
                 {
