@@ -167,6 +167,9 @@ public class PlayerMovement : MonoBehaviour
         {
             GameObject.Find("WCBackground").GetComponent<Animator>().SetBool("unlock", true);
         }
+
+        gameState.itemDescriptor.descriptionTextArray[0] = "Thanks for playing";
+        gameState.itemDescriptor.gameObject.SetActive(true);
     }
 
     private void redColorUnlock()
@@ -273,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
 
                 break;
 
-            case "Buro":
+            case "BuroFoto":
                 print("entro a : " + otherObject.name);
                 if (ItemObjects[(int)Items.Pulsera])
                 {
