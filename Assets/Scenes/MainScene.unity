@@ -2678,6 +2678,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3094844784984121478, guid: ccfc598127f603f43bff32bfcda42c01,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4715957287622832557, guid: ccfc598127f603f43bff32bfcda42c01,
         type: 3}
       propertyPath: m_SortingOrder
@@ -2689,6 +2694,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 4909a9a6293dee84e9be6a3eb0cc04f9, type: 2}
     - target: {fileID: 4715957287622832557, guid: ccfc598127f603f43bff32bfcda42c01,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161974130306135201, guid: ccfc598127f603f43bff32bfcda42c01,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3619,7 +3629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.025342211, y: 0.3016629}
   m_AnchorMax: {x: 0.9693316, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: -89}
+  m_AnchoredPosition: {x: 2, y: 218}
   m_SizeDelta: {x: 4, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218949340
@@ -6434,7 +6444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1751666323
 RectTransform:
   m_ObjectHideFlags: 0

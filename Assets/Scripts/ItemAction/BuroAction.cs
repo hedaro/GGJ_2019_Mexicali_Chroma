@@ -18,6 +18,12 @@ public class BuroAction : MonoBehaviour
 
     public void activeAction()
     {
-    	print("activeAction BuroAction");
+        ItemDescriptorCanvasController messageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
+        PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        if (!player.yellowUnlock)
+        {
+            messageBox.showTextBox(new string[1] { "Aquí falta algo" });
+        }
+        //print("activeAction BuroAction");
     }
 }
