@@ -18,6 +18,12 @@ public class PulseraAction : MonoBehaviour
 
     public void activeAction()
     {
-    	print("activeAction PulseraAction");
+        ItemDescriptorCanvasController messageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
+        PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        if (!player.greenUnlock)
+        {
+            messageBox.showTextBox(new string[1] { "Esto no va aquí" });
+        }
+        //print("activeAction PulseraAction");
     }
 }

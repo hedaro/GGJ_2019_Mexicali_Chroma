@@ -156,10 +156,12 @@ public class PlayerMovement : MonoBehaviour
         GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
         GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("CuadroEsposa").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("CuadroRevolucion").GetComponent<Animator>().SetBool("unlock", true);
         SoundManager.PlayMusic(TrackList.DULCE_HABANA);
 
         GameObject.Find("SalaBackground").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("LavadoBackground").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Sillon").GetComponent<Animator>().SetBool("unlock", true);
 
         if (yellowUnlock && redUnlock && blueUnlock)
         {
@@ -172,6 +174,8 @@ public class PlayerMovement : MonoBehaviour
         yellowUnlock = true;
         GameObject.Find("AlcobaBackground").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("BibliotecaBackground").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("PulseraBuro").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("estanteria").GetComponent<Animator>().SetBool("unlock", true);
 
         if (redUnlock)
         {
@@ -184,8 +188,8 @@ public class PlayerMovement : MonoBehaviour
             GameObject.Find("WCBackground").GetComponent<Animator>().SetBool("unlock", true);
         }
 
-        gameState.itemDescriptor.descriptionTextArray[0] = "Thanks for playing";
-        gameState.itemDescriptor.gameObject.SetActive(true);
+        //gameState.itemDescriptor.descriptionTextArray[0] = "Thanks for playing";
+        //gameState.itemDescriptor.gameObject.SetActive(true);
     }
 
     private void redColorUnlock()
@@ -292,7 +296,7 @@ public class PlayerMovement : MonoBehaviour
 
                 break;
 
-            case "BuroFoto":
+            case "CuadroEsposa":
                 print("entro a : " + otherObject.name);
                 if (ItemObjects[(int)Items.Pulsera])
                 {
@@ -361,6 +365,11 @@ public class PlayerMovement : MonoBehaviour
             case "CuadroJazz":
                 print("entro a : " + otherObject.name);
                 otherObject.GetComponent<CuadroJazzAction>().activeAction();
+                break;
+
+            case "Alacena":
+                print("entro a : " + otherObject.name);
+                otherObject.GetComponent<AlacenaAction>().activeAction();
                 break;
 
         }

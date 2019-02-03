@@ -20,7 +20,7 @@ public class BuroAction : MonoBehaviour
     {
         ItemDescriptorCanvasController messageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
         PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        if (!player.yellowUnlock)
+        if (player.greenUnlock && !player.yellowUnlock)
         {
             messageBox.showTextBox(new string[1] { "Aquí falta algo" });
         }
