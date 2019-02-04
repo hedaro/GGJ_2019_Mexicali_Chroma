@@ -18,6 +18,12 @@ public class TijerasAction : MonoBehaviour
 
     public void activeAction()
     {
-    	print("activeAction TijerasAction");
+        ItemDescriptorCanvasController messageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
+        PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        //if (player.greenUnlock)
+        {
+            messageBox.showTextBox(new string[1] { "A estas Tijeras, les falta filo" });
+        }
+        //print("activeAction TijerasAction");
     }
 }

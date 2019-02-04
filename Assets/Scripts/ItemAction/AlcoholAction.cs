@@ -20,7 +20,7 @@ public class AlcoholAction : MonoBehaviour
     {
         ItemDescriptorCanvasController messageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
         PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        if (!player.greenUnlock)
+        //if (!player.greenUnlock)
         {
             messageBox.showTextBox(new string[1] { "Una botella de Alcohol, tal vez deba curar a Mandolina" });
         }

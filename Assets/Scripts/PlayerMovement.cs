@@ -176,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject.Find("BibliotecaBackground").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("PulseraBuro").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("estanteria").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Alacena").GetComponent<Animator>().SetBool("unlock", true);
 
         if (redUnlock)
         {
