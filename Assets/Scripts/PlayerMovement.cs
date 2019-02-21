@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed;
     public ChangeRoom changeRoom;
 
+    private ItemDescriptorCanvasController MessageBox;
+
     public bool greenUnlock;
     public bool yellowUnlock;
     public bool redUnlock;
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         SoundManager = GameObject.Find("SoundManager").GetComponent<AudioManager>();
+        MessageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
 
         enter = false;
         SetPlayerState(PlayerState.Idle);
@@ -56,51 +59,58 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("left") || Input.GetKey("right"))
+        if (!MessageBox.IsShown)
         {
-            position = transform.position;
-            scale = transform.localScale;
-            SetPlayerState(PlayerState.Walking);
-
-            if (Input.GetKey("left"))
+            if (Input.GetKey("left") || Input.GetKey("right"))
             {
-                position.x -= playerSpeed;
-                transform.position = position;
+                position = transform.position;
+                scale = transform.localScale;
+                SetPlayerState(PlayerState.Walking);
 
-                if (scale.x < 0)
+                if (Input.GetKey("left"))
                 {
-                    scale.x *= -1;
-                    transform.localScale = scale;
+                    position.x -= playerSpeed;
+                    transform.position = position;
+
+                    if (scale.x < 0)
+                    {
+                        scale.x *= -1;
+                        transform.localScale = scale;
+                    }
+                }
+                else if (Input.GetKey("right"))
+                {
+                    position.x += playerSpeed;
+                    transform.position = position;
+
+                    if (scale.x > 0)
+                    {
+                        scale.x *= -1;
+                        transform.localScale = scale;
+                    }
                 }
             }
-            else if (Input.GetKey("right"))
+            else
             {
-                position.x += playerSpeed;
-                transform.position = position;
+                SetPlayerState(PlayerState.Idle);
+            }
 
-                if (scale.x > 0)
+            if (Input.GetKeyDown("up") || Input.GetKeyDown("down"))
+            {
+                if (changeRoom != null)
                 {
-                    scale.x *= -1;
-                    transform.localScale = scale;
+                    transform.position = changeRoom.MoveCameraAndPlayer(transform.position);
                 }
             }
         }
-        else
-        {
-            SetPlayerState(PlayerState.Idle);
-        }
 
-        if (Input.GetKeyDown("up") || Input.GetKeyDown("down"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(changeRoom != null)
+            if (MessageBox.IsShown)
             {
-                transform.position = changeRoom.MoveCameraAndPlayer(transform.position);
+                MessageBox.RefreshText();
             }
-        }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (enter)
+            else if (enter)
             { 
                 ItemBehaviours(otherObject);
             }
@@ -122,14 +132,20 @@ public class PlayerMovement : MonoBehaviour
         print("OnTriggerEnter2D");
         enter = true;
         otherObject = other.gameObject;
-        otherObject.GetComponent<SpriteOutline>().enabled = true;
+        if (otherObject != null && otherObject.GetComponent<SpriteOutline>() != null)
+        {
+            otherObject.GetComponent<SpriteOutline>().enabled = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         print("OnTriggerExit2D");
         enter = false;
-        otherObject.GetComponent<SpriteOutline>().enabled = false;
+        if (otherObject!=null && otherObject.GetComponent<SpriteOutline>() != null)
+        {
+            otherObject.GetComponent<SpriteOutline>().enabled = false;
+        }
         otherObject = null;
     }
 
@@ -140,10 +156,12 @@ public class PlayerMovement : MonoBehaviour
         GameObject.Find("Tocadiscos").GetComponent<Animator>().SetBool("play", true);
         GameObject.Find("Pulsera").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("CuadroEsposa").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("CuadroRevolucion").GetComponent<Animator>().SetBool("unlock", true);
         SoundManager.PlayMusic(TrackList.DULCE_HABANA);
 
         GameObject.Find("SalaBackground").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("LavadoBackground").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Sillon").GetComponent<Animator>().SetBool("unlock", true);
 
         if (yellowUnlock && redUnlock && blueUnlock)
         {
@@ -156,6 +174,9 @@ public class PlayerMovement : MonoBehaviour
         yellowUnlock = true;
         GameObject.Find("AlcobaBackground").GetComponent<Animator>().SetBool("unlock", true);
         GameObject.Find("BibliotecaBackground").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("PulseraBuro").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("estanteria").GetComponent<Animator>().SetBool("unlock", true);
+        GameObject.Find("Alacena").GetComponent<Animator>().SetBool("unlock", true);
 
         if (redUnlock)
         {
@@ -168,8 +189,8 @@ public class PlayerMovement : MonoBehaviour
             GameObject.Find("WCBackground").GetComponent<Animator>().SetBool("unlock", true);
         }
 
-        gameState.itemDescriptor.descriptionTextArray[0] = "Thanks for playing";
-        gameState.itemDescriptor.gameObject.SetActive(true);
+        //gameState.itemDescriptor.descriptionTextArray[0] = "Thanks for playing";
+        //gameState.itemDescriptor.gameObject.SetActive(true);
     }
 
     private void redColorUnlock()
@@ -276,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
 
                 break;
 
-            case "BuroFoto":
+            case "CuadroEsposa":
                 print("entro a : " + otherObject.name);
                 if (ItemObjects[(int)Items.Pulsera])
                 {
@@ -345,6 +366,11 @@ public class PlayerMovement : MonoBehaviour
             case "CuadroJazz":
                 print("entro a : " + otherObject.name);
                 otherObject.GetComponent<CuadroJazzAction>().activeAction();
+                break;
+
+            case "Alacena":
+                print("entro a : " + otherObject.name);
+                otherObject.GetComponent<AlacenaAction>().activeAction();
                 break;
 
         }

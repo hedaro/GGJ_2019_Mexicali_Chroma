@@ -18,6 +18,11 @@ public class VendasAction : MonoBehaviour
 
     public void activeAction()
     {
-    	print("activeAction VendasAction");
+        if (GameObject.Find("Vendas").GetComponent<SpriteRenderer>().enabled)
+        {
+            ItemDescriptorCanvasController messageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
+            messageBox.showTextBox(new string[1] { "¿Vendas?" });
+        }
+        //print("activeAction VendasAction");
     }
 }
