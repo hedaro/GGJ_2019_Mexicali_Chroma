@@ -14,7 +14,7 @@ public class GameState : MonoBehaviour
         currentRoom = Room.Sala;
         currentRoomSize = new Vector2(179.2f, 67.2f);
         currentRoomPosition = new Vector2(448.0f, 0.0f);
-        itemDescriptor.gameObject.SetActive(false);
+        //itemDescriptor.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

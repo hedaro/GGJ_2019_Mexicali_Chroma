@@ -18,6 +18,8 @@ public class VinylAction : MonoBehaviour
 
     public void activeAction()
     {
-    	print("activeAction VinylAction");
+        ItemDescriptorCanvasController messageBox = GameObject.Find("ItemDescriptionCanvas").GetComponent<ItemDescriptorCanvasController>();
+        messageBox.showTextBox(new string[1] { "50 Sones Radio Vieja. Cachao Cógele el Golpe" });
+        //print("activeAction VinylAction");
     }
 }
